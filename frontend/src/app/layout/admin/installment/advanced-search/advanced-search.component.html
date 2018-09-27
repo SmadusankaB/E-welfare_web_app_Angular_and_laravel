@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Advanced search options</h2>
+<mat-dialog-content>
+    <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="userSearchForm" role="form">
+        <div class="form-content">
+          <div class="field-container">
+            <mat-form-field class="form-fields">
+              <mat-select placeholder="Enter Faculty" formControlName="faculty_name" >
+                  <mat-option *ngFor="let faculty of faculties" [value]="faculty.faculty_name">
+                    {{faculty.faculty_name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-fields">
+                <mat-select placeholder="Select period" formControlName="period_start_date" >
+                  <mat-option *ngFor="let period of periods" [value]="period.start_date">
+                    {{period.start_date}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-fields">
+              <mat-select placeholder="Select entrance Year" formControlName="entrance_year" >
+                <mat-option *ngFor="let year of years" [value]="year">
+                  {{year}}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+            <mat-form-field class="form-fields">
+                <mat-select placeholder="Scholarship" formControlName="scholership_name" >
+                  <mat-option *ngFor="let scholarship of scholarships" [value]="scholarship.scholership_name">
+                    {{scholarship.scholership_name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+              <div class="button-row">
+                  <button mat-button type="button" (click)="cancel()">Cancel</button>
+                  <button mat-raised-button type="submit"  [disabled]="userSearchForm.invalid">Search</button>
+              </div>
+          </div>
+        </div>
+      </form>
+</mat-dialog-content>

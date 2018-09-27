@@ -1,0 +1,36 @@
+<div class="success-area">
+  <div class="year-select">
+    <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="yearSelectForm" role="form">
+      <mat-form-field class="form-fields">
+        <mat-select (selectionChange)="getChangesWithYear($event.value)" placeholder="Entrance Year" formControlName="entrance_year">
+          <mat-option *ngFor="let year of years" [value]="year">
+            {{year}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <br>
+  <mat-card>
+    <table id="changesDataTable" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Student No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Descriptipn</th>
+          <th>Date of Change</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>Student No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Descriptipn</th>
+          <th>Date of Change</th>
+        </tr>
+      </tfoot>
+    </table>
+  </mat-card>
+</div>

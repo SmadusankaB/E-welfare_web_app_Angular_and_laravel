@@ -1,0 +1,124 @@
+<!-- <div class="admin-container">
+  <div class="row">
+  <div class="col-xl-3 col-lg-6">
+      <mat-card>
+          <app-stat [bgClass]="'default'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
+      </mat-card>
+  </div>
+  <div class="col-xl-3 col-lg-6">
+      <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
+  </div>
+  <div class="col-xl-3 col-lg-6">
+      <app-stat [bgClass]="'success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
+  </div>
+  <div class="col-xl-3 col-lg-6">
+      <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+  </div>
+</div>
+</div> -->
+<div class="row first-row" cdkScrollable>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nOfInstallments]" [label]="'Installments'" [subtitle]="'Number of istallments.'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nOfPosts]" [label]="'Post'" [subtitle]="'Number of posts sent.'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nOfFaculties]" [label]="'Faculties'" [subtitle]="'Number of faculties.'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nOfSchlarships]" [label]="'Scholarships'" [subtitle]="'Number of scholarships offer.'"></app-stat>
+    </div>
+</div>
+<hr>
+<div class="row second-row">
+    <div class="tab-container">
+      <mat-card>
+          <h3>Faculties vs number of registetered students with changes</h3>
+          <mat-tab-group mat-stretch-tabs dynamicHeight="true">
+              <mat-tab label="Mahapola">
+                  <canvas baseChart height="180px" [data]="doughnutChartDataMahapola" [labels]="doughnutChartLabels1" [chartType]="doughnutChartType">
+                  </canvas>
+                  <!-- <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                              </canvas>       -->
+                  <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="facVsUserForm" role="form">
+                      <mat-form-field class="form-fields">
+                          <mat-select (selectionChange)="getWithYearForDoughnut($event.value)" placeholder="Select entrance Year" formControlName="fa_v_user_year_select_list">
+                              <mat-option *ngFor="let year of years" [value]="year">
+                                  {{year}}
+                              </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </form>
+              </mat-tab>
+              <mat-tab label="Bursary">
+                  <canvas baseChart height="180px" [data]="doughnutChartDataBursary" [labels]="doughnutChartLabels1" [chartType]="doughnutChartType">
+                  </canvas>
+                  <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="facVsUserForm" role="form">
+                      <mat-form-field class="form-fields">
+                          <mat-select (selectionChange)="getWithYearForDoughnut($event.value)" placeholder="Select entrance Year" formControlName="fa_v_user_year_select_list">
+                              <mat-option *ngFor="let year of years" [value]="year">
+                                  {{year}}
+                              </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </form>
+              </mat-tab>
+          </mat-tab-group>
+      </mat-card>
+    </div>
+    <div class="tab-container">
+      <mat-card>
+          <h3>Months vs number of signed students with changes</h3>
+          <mat-tab-group mat-stretch-tabs dynamicHeight="true">
+              <mat-tab label="Number of Students">
+                  <div class="bar-chart">
+                      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                          [chartType]="barChartType">
+                      </canvas>
+                      <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="facVsUserForm" role="form">
+                          <mat-form-field class="form-fields">
+                              <mat-select (selectionChange)="getWithYearForBarChart($event.value)" placeholder="Select entrance Year" formControlName="fa_v_user_year_select_list">
+                                  <mat-option *ngFor="let year of years" [value]="year">
+                                      {{year}}
+                                  </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                      </form>
+                  </div>
+              </mat-tab>
+              <!-- <mat-tab label="Amounts">
+                  <div class="bar-chart">
+                      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                          [chartType]="barChartType">
+                      </canvas>
+                      <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="facVsUserForm" role="form">
+                          <mat-form-field class="form-fields">
+                              <mat-select (selectionChange)="getWithYearForBarChart($event.value)" placeholder="Select entrance Year" formControlName="fa_v_user_year_select_list">
+                                  <mat-option *ngFor="let year of years" [value]="year">
+                                      {{year}}
+                                  </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                      </form>
+                  </div>
+              </mat-tab> -->
+          </mat-tab-group>
+      </mat-card>
+    </div>
+</div>
+<hr>
+<div class="row first-row" cdkScrollable>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nOSignedUser]" [label]="'Signed Users'" [subtitle]="'Number of signed student for this peiod.'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nORegisteredUser]" [label]="'Registered Users'" [subtitle]="'Number of registered users.'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nOfFaculties]" [label]="'Active Users'" [subtitle]="'Number of activated user accounts'"></app-stat>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+        <app-stat [count]="[nOfSchlarships]" [label]="'Rejected Users'" [subtitle]="'Number of rejected user accounts.'"></app-stat>
+    </div>
+</div>

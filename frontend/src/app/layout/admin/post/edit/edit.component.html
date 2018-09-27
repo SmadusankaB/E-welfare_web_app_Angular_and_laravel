@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Edit Post</h2>
+<mat-dialog-content>
+    <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="postEditForm" role="form">
+        <div class="form-content">
+          <div class="field-container">       
+           <mat-form-field class="form-fields">
+                    <input type="text" formControlName="title"  matInput placeholder="Post title"> 
+            </mat-form-field>  
+            <mat-form-field class="form-fields">
+                <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose the date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>  
+              <mat-form-field class="field-full-width form-fields" id="text-editor">
+                  <textarea matInput [froalaEditor]='options' formControlName="description"></textarea>
+              </mat-form-field> 
+              <div class="button-row">
+                  <button mat-button type="button" (click)="cancel()">Cancel</button>
+                  <button mat-raised-button type="submit"  [disabled]="postEditForm.invalid">Update</button>
+              </div>
+          </div>
+        </div>
+      </form>
+</mat-dialog-content>

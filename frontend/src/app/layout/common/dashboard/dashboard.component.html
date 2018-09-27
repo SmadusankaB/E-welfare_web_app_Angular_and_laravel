@@ -1,0 +1,9 @@
+<div [@routerTransition]>
+    <app-admin *ngIf="this.authService.isSuperAdmin"></app-admin>
+    <app-mahapolaadmin *ngIf="this.authService.isMahapolaAdmin"></app-mahapolaadmin>
+    <app-bursaryadmin *ngIf="this.authService.isBursaryAdmin"></app-bursaryadmin>
+    <app-generalauser *ngIf="this.authService.isGeneral"></app-generalauser>
+</div>
+
+
+

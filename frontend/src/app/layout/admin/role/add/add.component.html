@@ -1,0 +1,20 @@
+
+        <h2 mat-dialog-title>Add New Role</h2>
+        <mat-dialog-content>
+            <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="addRoleForm" role="form">
+                <div class="form-content">
+                  <div class="field-container">       
+                   <mat-form-field class="form-fields">
+                            <input type="text" formControlName="name"  matInput placeholder="Role"> 
+                    </mat-form-field>  
+                    <mat-form-field class="form-fields">
+                        <input type="text" formControlName="description"  matInput placeholder="Description"> 
+                    </mat-form-field>     
+                      <div class="button-row">
+                          <button mat-button type="button" (click)="cancel()">Cancel</button>
+                          <button mat-raised-button type="submit"  [disabled]="addRoleForm.invalid">Save</button>
+                      </div>
+                  </div>
+                </div>
+              </form>
+        </mat-dialog-content>

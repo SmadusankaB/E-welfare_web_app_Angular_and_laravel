@@ -1,0 +1,55 @@
+after mgrating database
+01. Run "php artisan config:cache"
+02. Run "php artisan passport:install"
+03. fill faculties, scholarships, roles(ROLE_SUPERADMIN), role_user  with at leaset one value
+03. Mail working only for edurom
+04. When keep relationships between tables using forign key, consider type and date in the migration name
+	also, nullable, onDelete('cascade') should concern
+05. datatype of each id is unsigned
+
+06. add all facultis one by one
+06. add only ROLE_SUPERADMIN to role table 
+07. set admin id and role in user_role table
+08. add 'Move from Bursary to Mahapola' and 'Move from Mahapola to Bursary' to options table
+09. add 'Mahapola', id =1 and 'Bursary', id=2 in to sholarships table
+10. add 'Account activation request' and 'Bursary scholarship request' as notification type
+	with id, 1 and 2.
+
+
+se/2013/005 - ADMIN
+se/2018/2100 - USER
+
+Installments - search options default
+	entrance year- current year
+	period start date - start date of last period
+	faculty id  - of commerce faclty using like
+	scholarship id - mahapola using like
+
+
+
+admin
+	request
+		bursary - table show user who has only scholarship_status in users tble is 0
+
+
+
+user
+	application
+		apply for bursary - if 'apply again status' is equal 1 show aplication form else show message
+				    if showImageUpload is equal to 1 show image upload part and hide application
+		
+
+
+todo- 
+move applyagainstatus into users tabel form ursaryapps table
+so, search every place of applyagainstatus  and configure it
+this controll is called by user bursary form edit, submission(update), admin approval 
+on bursary requests.
+Also, if admin ckeck applyagainstatus on bursary request view form, delete old recod 
+about the bursary submission from bursryapps table and update applyagainstatus on user table to one
+
+	
+3 month- 16000
+indi - 20000 
+15000, 7500
+october - 07

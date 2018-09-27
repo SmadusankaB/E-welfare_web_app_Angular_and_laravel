@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Add new CSV file</h2>
+<mat-dialog-content>
+  <label  class="">
+    Add new SCV file<input mat-mini-fab color="primary" type="file" name="file" hidden multiple (change)="uploadFile($event)">
+  </label>
+  <div class="button-row">
+    <button mat-button (click)="close()">Cancel</button>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+ 
+</mat-dialog-actions>

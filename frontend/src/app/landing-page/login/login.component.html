@@ -1,0 +1,36 @@
+ <div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+          <mat-card class="login-form-card">
+            <img src="assets/images/uoklogo.png" width="170px" class="user-avatar" />
+              <h1>Login</h1>
+              <div class="form-container">
+                <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="logInForm" role="form">
+                  <div class="form-content">
+                    <div class="field-container">
+                          
+                              <mat-form-field>
+                                  <input type="text" formControlName="student_no"  matInput placeholder="Student No">
+                                  <mat-error *ngIf="logInForm.get('student_no').invalid || (logInForm.submitted || logInForm.get('student_no').dirty)">{{studentNoErrorMeg}}</mat-error> 
+                              </mat-form-field>
+                          
+                              <mat-form-field>
+                                  <input type="password" formControlName="password"  matInput placeholder="Password">
+                                  <mat-error *ngIf="logInForm.get('password').invalid || (logInForm.submitted || logInForm.get('password').dirty)">{{passwordErrorMsg}}</mat-error> 
+                              </mat-form-field> 
+                              
+                              <div class="button-row">
+                                  <button mat-button class="alternative" type="submit" color="primary" [disabled]="logInForm.invalid"><mat-icon>lock</mat-icon>Login</button>
+                                  <a mat-button routerLink="/signup"><mat-icon>account_circle</mat-icon>Register</a>
+                              </div>                            
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </mat-card>
+    </div>
+   
+  </div>
+
+  
+
+

@@ -1,0 +1,79 @@
+<!-- <div class="login-page" [@routerTransition]>
+  <ng-progress [positionUsing]="'translate3d'" [minimum]="0.15" [maximum]="1"
+             [speed]="200" [showSpinner]="true" [direction]="'rightToLeftIncreased'"
+             [color]="'white'" [trickleSpeed]="250" [thick]="true" [ease]="'easeInOutQuad'"></ng-progress>
+    <div class="row justify-content-md-center">
+          <mat-card class="login-form-card">
+            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+            <h3>Registration</h3>
+            <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="signUpForm" >
+              <div class="form-content">
+                      <div class="form-group">
+                        <input type="text" formControlName="student_no"   class="form-control input-underline input-lg" placeholder="Student No">
+                        <p class="validations" *ngIf="signUpForm.get('student_no').invalid && (signUpForm.submitted || signUpForm.get('student_no').dirty)">Please Enter Student Number</p>   
+                      </div>
+                      <div class="form-group">
+                        <input type="text" formControlName="email"   class="form-control input-underline input-lg" placeholder="Email">
+                        <p class="validations" *ngIf="signUpForm.get('email').invalid && (signUpForm.submitted || signUpForm.get('email').dirty)">Please Enter Email</p>   
+                      </div>
+                      <div class="form-group">
+                        <input type="password" formControlName="password"   class="form-control input-underline input-lg" placeholder="Password">
+                        <p class="validations" *ngIf="signUpForm.get('password').invalid && (signUpForm.submitted || signUpForm.get('password').dirty)">Please Enter Password with 8 Characers</p>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" formControlName="confirm_password"   class="form-control input-underline input-lg" placeholder="Confirm Password">
+                        <p class="validations" *ngIf="signUpForm.get('confirm_password').invalid && (signUpForm.submitted || signUpForm.get('confirm_password').dirty)">Please Re-enter Password</p>
+                      </div>                          
+                  </div>
+                  
+                  <div *ngIf="errorMessage || signUpForm.submitted">
+                    <p class="validations" *ngFor="let error of errorMessage" >{{error}}</p>
+                  </div> 
+                  <div>
+                    <button class="btn rounded-btn" type="submit" [disabled]="signUpForm.invalid" > Register </button>&nbsp;<a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+                  </div>
+              </form>
+            </mat-card>
+    </div>
+</div>
+
+ -->
+ <div class="login-page" [@routerTransition]>
+<div class="row justify-content-md-center">
+    <mat-card class="login-form-card">
+      <img src="assets/images/uoklogo.png" width="170px" class="user-avatar" />
+        <h2>Register</h2>
+        <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="signUpForm" role="form">
+              <div class="form-content">
+                <div class="field-container">
+                      
+                    <mat-form-field>
+                        <input type="text" formControlName="student_no"  matInput placeholder="Student No">
+                        <mat-error *ngIf="signUpForm.get('student_no').invalid || (signUpForm.submitted || signUpForm.get('student_no').dirty)">{{studentNoErrorMeg}}</mat-error> 
+                    </mat-form-field>  
+
+                    <mat-form-field>
+                        <input type="email" formControlName="email"  matInput placeholder="Email">
+                        <mat-error *ngIf="signUpForm.get('email').invalid || (signUpForm.submitted || signUpForm.get('email').dirty)">{{emailErrorMeg}}</mat-error> 
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="password" formControlName="password"  matInput placeholder="Password">
+                        <mat-error *ngIf="signUpForm.get('password').invalid || (signUpForm.submitted || signUpForm.get('password').dirty)">{{passwordErrorMeg}}</mat-error> 
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="password" formControlName="confirm_password"  matInput placeholder="Confirm password">
+                        <mat-error *ngIf="signUpForm.get('confirm_password').invalid || (signUpForm.submitted || signUpForm.get('confirm_password').dirty)">{{rePasswordErrorMeg}}</mat-error> 
+                    </mat-form-field> 
+
+                    <div class="button-row">
+                        <button mat-button type="submit" color="primary" [disabled]="signUpForm.invalid"><mat-icon>account_circle</mat-icon>Register</button>
+                        <a mat-button routerLink="/login"><mat-icon>lock</mat-icon>Login</a>
+                      </div>
+                                                
+                </div>
+              </div>
+        </form>
+
+    </mat-card>
+</div>
+</div>

@@ -1,0 +1,12 @@
+php artisan make:controller InstallmentControllers/InstallmentController --resource --model=Models/InstallmentModels/Installment
+
+php artisan make:migration create_changes_table
+
+php artisan make:model Post -m , it will create model with datatable file
+
+
+Note: if table name containes name woth two words, separate them by underscore
+
+
+php artisan make:controller BursaryAppControllers/BursaryAppController --resource --model=Models/BursaryAppModels/BursaryApp
+php artisan make:migration create_bursary_apps_table

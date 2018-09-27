@@ -1,0 +1,28 @@
+
+<h2 mat-dialog-title>Start new Period</h2>
+<mat-dialog-content>
+<form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="periodEditForm" role="form">
+  <div class="form-content">
+    <div class="field-container">       
+        <mat-form-field class="form-fields">
+            <input matInput [matDatepicker]="picker2" formControlName="start_date" placeholder="Choose start date">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      <mat-form-field class="form-fields">
+          <input matInput [matDatepicker]="picker1" formControlName="end_date" placeholder="Choose end date">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>  
+     
+    <mat-checkbox class="" formControlName="status" [(ngModel)]="checked">Status</mat-checkbox>
+      
+        <div class="button-row">
+            <button mat-button type="button" (click)="cancel()">Cancel</button>
+            <button mat-raised-button type="submit"  [disabled]="periodEditForm.invalid">Save</button>
+        </div>
+       
+    </div>
+  </div>
+</form>
+</mat-dialog-content>

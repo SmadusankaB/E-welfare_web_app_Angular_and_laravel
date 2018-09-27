@@ -1,0 +1,61 @@
+ <div class="outer">
+  <div class="middle">
+    <div class="inner">
+        <div class="card mb-3 prof-img-area">
+        <div class="card-header text-center">
+                 <label class="form-control" >Advanced Search Options</label> 
+        </div>
+        <div class="card-body">
+                    <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="serchForm" role="form">
+                        <div class="form-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset class="form-group">
+                                        <label>Faculty</label>
+                                        <select class="form-control" formControlName="faculty_name">
+                                                <option selected>None</option>
+                                                <option>Faculty of Science</option>
+                                                <option>Faculty of Art</option>
+                                                <option>Faculty of Medical</option>
+                                                <option>Faculty of Technology</option>
+                                                <option>Faculty of Commerce</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group">
+                                        <label>Scholership</label>
+                                        <select class="form-control" formControlName="scholership_name">
+                                                <option selected>None</option>
+                                                <option>Mahapola</option>
+                                                <option>Bursary</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group">
+                                        <label>Entrance Year</label>
+                                        <select class="form-control" formControlName="entrance_year">
+                                           <!--  <option [selected]=true>{{current_year}}</option> -->
+                                            <option *ngFor="let year of years">{{year}}</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                            </div>    
+                        </div>
+                         <div class="btns">
+                            <button type="submit" class="btn btn-primary" >Submit</button>
+                         <button type="button" class="btn btn-default" (click)="toggleSearchForm()"> Cancel</button> 
+                         </div>
+                         
+                    </form>
+                           
+        </div> 
+        <div class="card-footer">
+               
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+ 

@@ -1,0 +1,32 @@
+ <div class="card mb-3 prof-img-area">
+        <div class="card-header text-center">
+                 <label class="form-control" >{{full_name}}</label> 
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                     <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="editForm" role="form">
+                        <div class="form-content">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Email" formControlName="email">
+                                <p class="validations" *ngIf="editForm.get('email').invalid && (editForm.submitted || editForm.get('email').dirty)">Please Enter Email</p>
+                            </div>
+                            <div class="form-group">   
+                                <input class="form-control" placeholder="Student No" formControlName="student_no">
+                                 <p class="validations" *ngIf="editForm.get('student_no').invalid && (editForm.submitted || editForm.get('student_no').dirty)">Please Enter Student Number</p> </div>
+                        </div>
+                        <div *ngIf="errorMessage || editForm.submitted">
+                            <p class="validations" *ngFor="let error of errorMessage" >{{error}}</p>
+                        </div> 
+                        <div class="buttons">
+                            <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid">Submit</button>
+                            <button type="button" class="btn btn-primary" (click)="toggleSideBar()">Cancel</button> 
+                        </div>
+                    </form>
+                </div>
+            </div>            
+        </div> 
+        <div class="card-footer">
+               
+        </div>
+    </div>

@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": 860,
+      "first_name": "Superman",
+      "last_name": "Yoda"
+    },
+    {
+      "id": 870,
+      "first_name": "Foo",
+      "last_name": "Whateveryournameis"
+    },
+    {
+      "id": 590,
+      "first_name": "Toto",
+      "last_name": "Titi"
+    }
+  ]
+}

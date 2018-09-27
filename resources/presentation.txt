@@ -1,0 +1,3 @@
+security - token, 
+	route gard for token and redirect to login page, 
+	route gard for user type and redirect to access denied page.

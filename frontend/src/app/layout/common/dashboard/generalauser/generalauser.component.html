@@ -1,0 +1,131 @@
+<mat-card>
+  <div class="table-area">
+    <div class="content">
+      <div class="header">
+        <h2 mat-dialog-title>Installment information</h2>
+        <mat-dialog-content>
+        </mat-dialog-content>
+      </div>
+    </div>
+    <table id="installmentsDataTable" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Signature</th>
+          <th>Payment</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>Id</th>
+          <th>Signature</th>
+          <th>Payment</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</mat-card>
+
+
+<div class="header">
+  <div class="content">
+    <h2 mat-dialog-title>Other information</h2>
+    <mat-dialog-content>
+    </mat-dialog-content>
+  </div>
+</div>
+<div class="row first-row" cdkScrollable>
+  <div class="col-xl-3 col-lg-6 ">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>
+          <h3>Active Period</h3>
+        </mat-card-title>
+        <mat-card-subtitle>This is given current active period to provide signature.</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="../../../../../assets/images/timeline_1072029.png" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <p>
+          {{period}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button> -->
+      </mat-card-actions>
+    </mat-card>
+
+
+  </div>
+  <div class="col-xl-3 col-lg-6">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>
+          <h3>Scholarship</h3>
+        </mat-card-title>
+        <mat-card-subtitle>The scholarship that you slected.</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="../../../../../assets/images/money.png" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <p>
+          {{scholarship}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button> -->
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+  <div class="col-xl-3 col-lg-6">
+    <mat-card>
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>
+          <h3>Installments</h3>
+        </mat-card-title>
+        <mat-card-subtitle>Total installments that you signed so far</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="../../../../../assets/images/money.png" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <p>
+          {{installment}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button> -->
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="col-xl-3 col-lg-6">
+
+    <mat-card>
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>
+          <h3>signatureStatus</h3>
+        </mat-card-title>
+        <mat-card-subtitle>signatureStatus status for current installemtn</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="../../../../../assets/images/money.png" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <p>
+          {{signatureStatus}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button> -->
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

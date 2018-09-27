@@ -1,0 +1,17 @@
+<!-- <mat-toolbar color="#b71c1c" > -->
+  <mat-toolbar color="#b71c1c" style="position: fixed; width: 100%; z-index: 900;" >
+  <mat-toolbar-row>
+     <span><a routerLink="/"> <span class="brand-name">E-Welfare, UOK</span></a> </span>
+   <span class="example-spacer"></span>
+   <button mat-button type="button" (click)="navigateToLogin()" class="toolbar-btn">
+      <mat-icon>lock</mat-icon>
+      LogIn
+    </button>
+    <button mat-button type="button" (click)="navigateToSignup()" class="toolbar-btn">
+        <mat-icon>face</mat-icon>
+        SignUp
+      </button>
+  
+  </mat-toolbar-row>
+</mat-toolbar>
+

@@ -1,0 +1,96 @@
+<div class="barapp-container">
+  <div class="application-only" *ngIf="applyAgainStatus && scholarshipStatus">
+      <div class="application-form"  *ngIf="!showImageUpload">
+          <mat-card>
+            <div class="content">
+              <div class="header">
+                <h2 mat-dialog-title>Application Form</h2>
+                <mat-dialog-content>
+                  <p>Bursary Scholarship Application Form - step 01</p>
+                </mat-dialog-content>
+              </div>
+            </div>
+            <mat-card-content>
+              <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="bursaryForm" role="form" *ngIf="!showImageUpload">
+                <div class="form-content">
+                  <div class="field-container">
+                    <mat-form-field class="form-fields">
+                      <input type="text" formControlName="first_name" matInput placeholder="First Name">
+                    </mat-form-field>
+                    <mat-form-field class="form-fields">
+                      <input type="text" formControlName="last_name" matInput placeholder="Last Name">
+                    </mat-form-field>
+                    <mat-form-field class="form-fields">
+                      <input type="text" formControlName="distance" matInput placeholder="Distance from home. Ex: 100km">
+                    </mat-form-field>
+                    <mat-form-field class="form-fields">
+                      <input type="text" formControlName="address" matInput placeholder="Address">
+                    </mat-form-field>
+                    <mat-form-field class="form-fields">
+                      <input type="text" formControlName="phone_no" matInput placeholder="Phone number">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <mat-card-actions class="mat-actions">
+                  <div class="button-row">
+                    <button mat-button type="submit" [disabled]="bursaryForm.invalid">Submit</button>
+                    <button mat-button type="button" (click)="cancelBursaryApp()">Cancel</button>
+                  </div>
+
+                </mat-card-actions>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="image-area" *ngIf="showImageUpload">
+            <mat-card>
+              <div class="content">
+                <div class="header">
+                  <h2 mat-dialog-title>Application Form</h2>
+                  <mat-dialog-content>
+                    <p>Bursary Scholarship Application Form - step 02</p>
+                  </mat-dialog-content>
+                </div>
+              </div>
+              <div class="table-container">
+                <table>
+                  <tr>
+                    <td>
+                      <label>
+                        Add an image of annual income certificate
+                        <input type="file" name="file" hidden (change)="uploadFile($event)">
+                      </label>
+                    </td>
+                    <td class="image-td">
+                      <div class="approval-image">
+                        <img class="income-image" mat-card-image alt="Profile Picture" [src]="profileImage" width="128px" height="128px">
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </mat-card>
+        </div>
+  </div>
+    <div class="message-area" *ngIf="!applyAgainStatus || !scholarshipStatus">
+      <mat-card>
+        <div class="content">
+          <div class="header">
+            <h2 mat-dialog-title>Warning</h2>
+            <div class="denied-icon">
+              <mat-icon>information</mat-icon>
+            </div>
+            <mat-dialog-content>
+              <p>Your application is reviewing.</p><br>
+              <p>or</p><br>
+              <p>You already have a scholarship.</p>
+            </mat-dialog-content>
+          </div>
+        </div>
+
+      </mat-card>
+    </div>
+</div>
+
+
+

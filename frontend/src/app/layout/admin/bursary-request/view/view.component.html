@@ -1,0 +1,115 @@
+<!-- <div class="card-content">
+
+<mat-card class="example-card">
+  <div class="card-header">
+    <h4>Bursary scholarshp application</h4>
+  </div>
+  <mat-card-content *ngIf="firstName">
+    <div class="container">
+        <div><mat-icon>home</mat-icon><h5>First Name :{{firstName}}</h5></div>
+    </div>
+    <div class="container">
+        <div><h5>Last Name :{{lastName}}</h5></div>
+    </div>
+    <div class="container">
+        <div><h5>Address :{{address}}</h5></div>
+    </div>
+    <div class="container">
+        <div><h5>Phone No :{{phoneNo}}</h5></div>
+    </div>
+    <div class="container">
+        <div><h5>Distance form home to university :{{distance}}</h5></div>
+    </div>
+
+    <div class="container">
+        <div>
+            <h5>Annual income:</h5>
+        </div>
+        <div class="income-image">
+            <img  mat-card-image [src]="approvalImage" width="60px" height="60px" class="resposive"  alt="Photo">
+        </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<div class="button-row">
+    <button type="button" mat-button (click)="approve()">Approve</button>
+    <button mat-button type="button" (click)="cancel()">Cancel</button>
+  </div>
+</div> -->
+<div class="content">
+  <div class="header">
+    <h2 mat-dialog-title>Application Form Request</h2>
+    <mat-dialog-content>
+      <p>Bursary Scholarship Application Form Details</p>
+    </mat-dialog-content>
+  </div>
+  <div class="container" *ngIf="address">
+    <table >
+      <!-- <tr>
+        <th>First Name: </th>
+        <th>
+          <mat-form-field>
+            <input matInput disabled placeholder="{{firstName}}">
+          </mat-form-field>
+        </th>
+      </tr>
+      <tr>
+        <th>Last Name: </th>
+        <th>
+          <mat-form-field>
+            <input matInput disabled placeholder="{{lastName}}">
+          </mat-form-field>
+        </th>
+      </tr> -->
+      <tr>
+        <th>Address: </th>
+        <th>
+          <mat-form-field>
+            <input matInput disabled placeholder="{{address}}">
+          </mat-form-field>
+        </th>
+      </tr>
+      <tr>
+        <th>Phone No:</th>
+        <th>
+          <mat-form-field>
+            <input matInput disabled placeholder="{{phoneNo}}">
+          </mat-form-field>
+        </th>
+      </tr>
+      <tr>
+        <th>Annual Income Approval:</th>
+        <th>
+          <div class="income-image">
+            <img mat-card-image [src]="approvalImage" width="40px" height="150px" class="resposive" alt="Photo">
+          </div>
+        </th>
+      </tr>
+
+    </table>
+
+    <div class="footer">
+        <mat-dialog-content>
+          <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="BursaryApproveForm" role="form">
+            <!-- <mat-checkbox class="scholership-status" formControlName="scholership_status" [(ngModel)]="scholarshipStatus">Scholarship status</mat-checkbox>
+            <mat-checkbox class="apply-again-status" formControlName="apply_again_status" [(ngModel)]="applyAgainStatus">Allow apply again</mat-checkbox>
+             -->
+             <mat-radio-group class="example-radio-group" formControlName="option">
+
+
+              <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-radio-button>
+
+            </mat-radio-group>
+            <div class="button-row">
+              <button mat-raised-button type="submit" [disabled]="BursaryApproveForm.invalid">Update</button>
+              <button mat-button type="button" (click)="cancel()">Cancel</button>
+            </div>
+          </form>
+        </mat-dialog-content>
+      </div>
+
+  </div>
+
+</div>

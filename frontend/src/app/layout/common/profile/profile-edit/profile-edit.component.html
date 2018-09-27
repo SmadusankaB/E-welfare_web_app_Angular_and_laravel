@@ -1,0 +1,47 @@
+<mat-card class="edit-form-card">
+        <mat-card-header>
+          <mat-card-title>Profile Edit</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="userEditForm" role="form">
+                    <div class="form-content">
+                        <div class="field-container">
+                                <mat-form-field class="form-fields">
+                                    <input type="text" formControlName="first_name"  matInput placeholder="First Name">
+                                    <mat-error *ngIf="userEditForm.get('first_name').invalid || (userEditForm.submitted || userEditForm.get('first_name').dirty)">{{firstNameErrorMeg}}</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="form-fields">
+                                    <input type="text" formControlName="last_name"  matInput placeholder="Last Name">
+                                    <mat-error *ngIf="userEditForm.get('last_name').invalid || (userEditForm.submitted || userEditForm.get('last_name').dirty)">{{lastNameErrorMsg}}</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="form-fields">
+                                    <mat-select placeholder="Enter Faculty" formControlName="faculty_name" >
+                                      <mat-option *ngFor="let faculty of faculties" [value]="faculty.faculty_name">
+                                        {{faculty.faculty_name}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="form-fields">
+                                    <mat-select placeholder="Entrance Year" formControlName="entrance_year" >
+                                      <mat-option *ngFor="let year of years" [value]="year">
+                                        {{year}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="field-full-width form-fields" id="text-editor">
+                                    <textarea matInput [froalaEditor]='options' formControlName="profile_summary"></textarea>
+                                </mat-form-field>
+
+                        </div>
+                    </div>
+                    <mat-card-actions class="mat-actions">
+                            <div class="button-row">
+                                    <button mat-button type="submit" [disabled]="userEditForm.invalid">Update</button>
+                                    <button mat-button type="button" (click)="cancel()">Cancel</button>
+                                  </div>
+
+                    </mat-card-actions>
+            </form>
+        </mat-card-content>
+
+      </mat-card>

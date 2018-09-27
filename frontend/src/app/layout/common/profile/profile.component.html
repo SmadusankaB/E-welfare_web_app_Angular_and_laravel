@@ -1,0 +1,128 @@
+<div [@routerTransition]>
+  <div class="profile-container row">
+    <div class="col-md-9">
+
+      <div class="profile-image-card">
+        <app-picture></app-picture>
+      </div>
+      <!-- <div class="profile-dertails-card">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                          <h4>{{firstName}} {{lastName}}</h4>
+                      </mat-card-title>
+                      <mat-card-subtitle><h5>{{studentNo}}</h5></mat-card-subtitle>
+                      <mat-card-subtitle><p>{{email}}</p></mat-card-subtitle>
+                      <mat-card-subtitle><p>{{faculty}}</p></mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                      <p [froalaView]="profileSummary"></p>
+                    </mat-card-content>
+                    <mat-card-actions>
+
+                        <div class="button-row">
+                                <button mat-button (click)="openEditDialog()"><mat-icon>edit</mat-icon>Edit</button>
+
+                                <button mat-button class="social-icons"><i class="fa fa-twitter"></i></button>
+                                <button mat-button class="social-icons"><i class="fa fa-facebook"></i></button>
+                                <button mat-button class="social-icons"><i class="fa fa-google-plus"></i></button>
+
+                        </div>
+
+                    </mat-card-actions>
+                  </mat-card>
+
+            </div> -->
+
+      <mat-card class="details-card">
+        <div class="content">
+          <div class="header">
+            <!-- <h2 mat-dialog-title>Application Form Request</h2>
+                      <mat-dialog-content>
+                        <p>Bursary Scholarship Application Form Details</p>
+                      </mat-dialog-content>
+                    </div> -->
+            <div class="container" *ngIf="firstName">
+              <table style="width:100%">
+                <tr>
+                  <!-- <th>Address: </th> -->
+                  <th>
+                    <mat-form-field>
+                      <input matInput disabled placeholder="{{firstName}} {{lastName}}">
+                    </mat-form-field>
+                  </th>
+                </tr>
+                <tr>
+                  <!-- <th>Phone No:</th> -->
+                  <th>
+                    <mat-form-field>
+                      <input matInput disabled placeholder="{{studentNo}}">
+                    </mat-form-field>
+                  </th>
+                </tr>
+
+                <tr>
+                  <!-- <th>Phone No:</th> -->
+                  <th>
+                    <mat-form-field>
+                      <input matInput disabled placeholder="{{email}}">
+                    </mat-form-field>
+                  </th>
+                </tr>
+
+                <tr>
+                  <!-- <th>Phone No:</th> -->
+                  <th>
+                    <mat-form-field>
+                      <input matInput disabled placeholder="{{faculty}}">
+                    </mat-form-field>
+                  </th>
+                </tr>
+
+                <tr>
+                  <!-- <th>Phone No:</th> -->
+                  <th>
+                    <!-- <mat-form-field>
+                              <input matInput disabled placeholder="{{faculty}}">
+                            </mat-form-field> -->
+                    <p class="editor" [froalaView]="profileSummary"></p>
+                  </th>
+                </tr>
+
+
+              </table>
+            </div>
+
+            <div class="footer">
+
+              <div class="button-row">
+                <button mat-button (click)="openEditDialog()">
+                  <mat-icon>edit</mat-icon>Edit</button>
+
+                <button mat-button class="social-icons">
+                  <i class="fa fa-twitter"></i>
+                </button>
+                <button mat-button class="social-icons">
+                  <i class="fa fa-facebook"></i>
+                </button>
+                <button mat-button class="social-icons">
+                  <i class="fa fa-google-plus"></i>
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </mat-card>
+
+    </div>
+    <div class="col-md-3">
+        <div>
+            <app-chat class="chat"></app-chat>
+        </div>
+    </div>
+
+  </div>

@@ -1,0 +1,131 @@
+<div id="infinite-scroller">
+    <div  [@routerTransition] >
+        <!-- <div id="graphic-image">
+            <img src="assets/images/anim.gif" height="100%" alt="Not By Design" border="1" />
+        </div> -->
+        <div id="all-container">
+            <div class="header-card-container">
+                <mat-card id="main-title-card"> 
+                <h1>Student Welfare Division</h1>
+                <h2>University of Kelaniya</h2>
+            
+                </mat-card>
+            </div>
+            <div class="middle-container row">
+                <div class="col-md-7" >
+                    <div id="first-card">
+                    <mat-card>
+                        <div>
+                            <div class="midle-container-header">
+                                <h4>A Comprehensive Student Management Platform</h4>
+                            </div>
+                            <div class="middle-container-icons">
+                                <mat-grid-list cols="3" rowHeight="2:1">
+                                    <mat-grid-tile>
+                                        <mat-icon>recent_actors</mat-icon>                                       
+                                    </mat-grid-tile>
+                                    <mat-grid-tile>
+                                        <mat-icon>people</mat-icon>                                       
+                                    </mat-grid-tile>
+                                    <mat-grid-tile>
+                                        <mat-icon>favorite</mat-icon>
+                                    </mat-grid-tile>
+                                </mat-grid-list>
+                            </div>
+                            <div class="middle-container-items row">
+                                <div class="col-sm-4">
+                                    <h5><a>Manage scholarships</a></h5><br>
+                                    <div class="row">
+                                            <div class="col-sm-4">
+                                                <mat-icon>monetization_on</mat-icon>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <p>Mahapola scholarship</p>
+                                            </div>
+                                        </div>
+        
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <mat-icon>card_giftcard</mat-icon>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <p>Bursary scholarship</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <mat-icon>attach_money</mat-icon>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                        <p>Other scholarship</p>      
+                                                 </div>
+                                            </div>
+
+                                           
+
+                                        
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5>Grow network</h5>
+                                 </div>
+                                <div class="col-sm-4">
+                                    <h5>User friendy environment</h5>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </mat-card>
+                    </div>
+                    <div class="second-card">
+                        <mat-card>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a><h5>Home</h5></a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a><h5>About</h5></a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a><h5>Contacts</h5></a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a><h5>Developer</h5></a>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div>
+                <div class="posts-container col-md-5">
+                        <mat-card class="posts-header-card"> 
+                            <h3>Updates..</h3>
+                        </mat-card>
+                    <div class="posts-body" 
+                    infinite-scroll
+                    [infiniteScrollDistance]="2"
+                    [infiniteScrollThrottle]="10"
+                    (scrolledUp)="onScrollDown()">
+                        <li class="posts-list" *ngFor="let post of posts">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <mat-card class="posts-date">
+                                        {{post.date}}
+                                    </mat-card>
+                                </div>
+                                <div class="col-md-7"> 
+                                        <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title class="posts-title" >
+                                                        {{post.title}}
+                                                    </mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <div [froalaView]="post.description"></div>
+                                            </mat-expansion-panel>
+                                </div>
+                            </div>
+                        </li>
+                    </div> 
+                </div>
+            </div>
+       </div> 
+    </div>
+</div>

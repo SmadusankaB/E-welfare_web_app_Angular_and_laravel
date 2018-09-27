@@ -1,0 +1,9 @@
+<app-header  ></app-header>
+<!-- <app-sidebar *ngIf = "authService.isSuperAdmin" ></app-sidebar> -->
+<app-admin-sidebar *ngIf = "authService.isSuperAdmin"></app-admin-sidebar>
+<app-mahapola-sidebar *ngIf = "authService.isMahapolaAdmin" ></app-mahapola-sidebar>
+<app-bursary-sidebar *ngIf = "authService.isBursaryAdmin"></app-bursary-sidebar>
+<app-student-sidebar *ngIf = "authService.isGeneral"></app-student-sidebar>
+<section class="main-container">
+	    <router-outlet></router-outlet>
+</section>

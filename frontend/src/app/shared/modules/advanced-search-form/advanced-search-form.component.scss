@@ -1,0 +1,55 @@
+:host {
+  background: #fff;
+  border-color: #212529;
+  color: #000;
+  position: fixed;
+  left: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  min-width: 250px;
+  z-index: 9999;
+}
+
+.card{
+
+  height: 40%;
+}
+
+.card-header {
+  background-color: #aa1212;
+}
+
+.btns{
+  float: right;
+}
+
+.card-footer{
+  background-color: #aa1212;
+}
+
+
+/*those are used to keep card center*/
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px; /*whatever width you want*/
+}
+
+
+
+
+

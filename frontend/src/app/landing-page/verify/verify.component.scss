@@ -1,0 +1,120 @@
+// shared css for the login and signup page
+//@import "../login/login.component.scss";
+
+// shared css for the login and signup page
+// @import "../login/login.component.scss";
+
+
+.login-page{
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 3.5em;
+    padding-top: 7%;
+    height: 100%;
+
+    .login-form-card{
+                width: 34%;
+                background-color: #ffffff;
+                padding-top: 2px;
+
+            }
+
+    .form-content {
+                padding: 5px 0;
+            }
+
+    .user-avatar {
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        padding-bottom: 3%;
+        padding-top: 3%;
+    }
+
+    .form-content {
+        padding: 5px 0;
+        padding-top: 7%;
+    }
+
+    // .form-group {
+    //             padding: 0px 0;
+    //             input::-webkit-input-placeholder {
+    //                 color: rgba(34,34,34, 0.6) !important;
+    //             }
+
+    //             input:-moz-placeholder {
+    //                 /* Firefox 18- */
+    //                 color: rgba(34,34,34, 0.6) !important;
+    //             }
+
+    //             input::-moz-placeholder {
+    //                 /* Firefox 19+ */
+    //                 color: rgba(34,34,34, 0.6) !important;
+    //             }
+
+    //             input:-ms-input-placeholder {
+    //                 color: rgba(34,34,34, 0.6) !important;
+    //             }
+
+
+    //         }
+
+    .login-form-card{
+
+
+
+            .field-container {
+                display: flex;
+                flex-direction: column;
+
+                mat-form-filed{
+                    width: 100% !important;
+
+
+                }
+            //     ::ng-deep {
+
+            //         .mat-form-field-underline, .mat-form-field-ripple {
+            //         background-color: #540000 ;
+            //         }
+
+            //         .mat-focused, .mat-form-field-label{
+            //             color: #540000;
+            //         }
+            //    }
+
+                 button, a{
+                    background-color: #540000;
+                    color: #fff;
+                    width: 49.5%;
+                }
+
+                .button-row{
+                    margin-top: 4%;
+                }
+
+            }
+
+            .field-container > * {
+             width: 100%;
+            }
+
+    }
+}
+
+.expansion-panel{
+  margin-top: 5px;
+}
+
+#request-btn{
+  background-color: #540000;
+  color: #fff;
+  width: 49.5%;
+}

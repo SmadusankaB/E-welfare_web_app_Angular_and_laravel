@@ -1,0 +1,36 @@
+<div profile-image-card>
+
+<mat-card class="example-card">
+  <mat-card-content>
+      <div class="profile-photo-container">
+            <div class="user-image">
+                <img class="profile-photo" mat-card-image *ngIf="profileImage"  alt="Profile Picture" [src]="profileImage" >
+            </div>
+      </div>  
+    <div class="card-image-up">
+        <img  mat-card-image src="../../../../../assets/images/banner.jpg" class="resposive" width="128px" height="128" alt="Photo">
+    </div>
+    
+
+            <p *ngIf="upTime">Last update {{upDate}} at {{upTime}}</p>
+      
+
+    <div class="img-change-btn">
+            <label >
+                    Change Profile Picture<input type="file" name="file" hidden (change)="uploadFile($event)">
+            </label>
+    </div>
+
+  </mat-card-content>
+  </mat-card>
+</div>
+
+   
+
+    
+     
+   
+
+
+
+ 

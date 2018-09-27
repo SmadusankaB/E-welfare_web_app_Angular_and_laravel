@@ -1,0 +1,40 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <mat-card class="login-form-card">
+                <img src="assets/images/uoklogo.png" width="160px" class="user-avatar" />
+                <h2>Verify Email</h2>
+                <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="verifyForm" role="form">
+                        <div class="form-content">
+                            <div class="field-container">
+                                    <mat-form-field>
+                                        <input type="text" formControlName="code"  matInput placeholder="Enter 4 digit code here.">
+                                    <mat-error *ngIf="verifyForm.get('code').invalid || (verifyForm.submitted || verifyForm.get('code').dirty)">{{codeErrorMeg}}</mat-error>
+                                </mat-form-field>
+
+                                <div class="button-row">
+                                    <button mat-button type="submit" color="primary" [disabled]="verifyForm.invalid"><mat-icon>check_circle</mat-icon>Verify</button>
+                                    <a mat-button routerLink="/signup"><mat-icon>undo</mat-icon>Go back</a>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+
+                <div class="expansion-panel">
+                  <mat-accordion>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Option
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Manually activate account
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <p>If you didn't receive an email, please click button bellow to request to activate your account.</p>
+                      <button mat-button type="button" id="request-btn" color="primary" ><mat-icon>keyboard_backspace</mat-icon>Send Request</button>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+#infinite-scroller{
+
+    // .login-page{
+                
+        // #graphic-image{
+        //     img{
+        //         position: relative;
+        //         float: right;
+        //         margin-top: 2%;
+        //         margin-right: 10%;
+        //         z-index: 9999;
+        //         width: 25%;
+        //         height: 25%;
+        //     }
+        // }
+
+       
+        #all-container{
+            width: 90%;
+            margin-left: 5%;
+
+            .header-card-container{
+
+                padding-top: 7%;
+                
+                #main-title-card{
+    
+                    h2, h1{
+                       color: #540000;
+                    }
+                }
+            
+            }
+    
+            .middle-container{
+                
+                margin-top: 2%;
+
+                ul{
+                    list-style-type: none;
+                }
+
+                .middle-container-icons{
+                    
+
+                    mat-icon{
+                        font-size: 69px !important;
+                        height: 65px  !important;
+                        width: 66px !important;
+                        color: #f60305;
+                    }
+                }
+
+                .middle-container-items{
+
+                    h5 {
+                        text-align: center;
+                        color: #540000;
+                    };
+
+                   .col-sm-4{
+                    padding-top: 0px;
+                    padding-left: 14px;
+                    padding-right: 0px;
+                    color: #540000;
+                   }
+
+                   mat-icon{
+                    color: #f60305;
+                   }
+
+                   .col-sm-8{
+                       padding-right: 0;
+                       padding-left: 0;
+                   }
+                    
+                }
+
+                .posts-container{
+
+                    .posts-header-card{
+                        background-color: #aa1212;
+                        color: white;
+                    }
+
+                    .posts-body{
+
+                        height: 23rem;
+                        overflow: scroll;
+                        overflow-x: hidden;
+
+                        .posts-list{
+
+                            background-color: #540000;
+                            padding: 2%;
+
+                            .posts-date{
+                                padding: 7% !important;
+                            }
+
+                            .posts-title{
+                                padding: 0;
+                            }
+
+                            .posts-description{
+                                padding: 0;
+                            }
+                        }
+
+                    }
+                }
+    
+                .second-card{
+                    margin-top: 2%;
+                }
+            }
+        }    
+    
+
+}
