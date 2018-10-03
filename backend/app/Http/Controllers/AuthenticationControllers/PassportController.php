@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Validator;
 use DB;
 use Mail;
+use Response;
 
 
 
@@ -30,7 +31,7 @@ class PassportController extends Controller
 	*/
 	public function login(Request $request){
 
-		//return response()->json('hi');
+		// return response()->json('hi');
 		// return response()->json(['data'], 200);
 
 		// validate user login details
@@ -76,18 +77,22 @@ class PassportController extends Controller
 			accessToken; //Assign token to authenticated user
 
 			// return, return array with id, role_type and token
+			
+			return $complete;
 			return response()->json(['complete' => $complete], 200);
+		
 
+			//return response()->json($complete);
+			
+			// $response = Response::make(json_encode($complete), 200)->header('Content-Type', 'application/json');
+			// 	return $response;
 		}else{
 
 			// return fail response, if unauthorized credentials was provided.
-			return response()->json(['fail' => 'Unauthorised credentials. Try again'], 401);
+			return response()->json(['fail' => 'Unauthorised credentials. Try again'], 400);
 		}
 		
 	}
-
-	
-
 
 	/**
 	* Register api
