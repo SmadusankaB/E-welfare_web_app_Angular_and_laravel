@@ -40,12 +40,12 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser().subscribe(
       (user: User[]) => {
      // this.loaderService.hideLoader();
-      this.firstName =  user[0].first_name ;
-      this.lastName = user[0].last_name;
-      this.email = user[0].email;
-      this.studentNo = user[0].student_no;
-      this.faculty = user[0].faculty_name;
-      this.profileSummary = user[0].profile_summary;
+      this.firstName =  user['first_name'] ;
+      this.lastName = user['last_name'];
+      this.email = user['email'];
+      this.studentNo = user['student_no'];
+      this.faculty = user['faculty_name'];
+      this.profileSummary = user['profile_summary'];
     },
       error => this.errorMessage = <any>error
     );
