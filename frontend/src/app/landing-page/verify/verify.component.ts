@@ -18,7 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class VerifyComponent implements OnInit {
 
   verifyForm: FormGroup;
-  successMessage: any;
+
   errorMessage: string;
 
   panelOpenState = false;
@@ -53,15 +53,14 @@ export class VerifyComponent implements OnInit {
       this.verifyService.doVerify(this.verifyForm.value).subscribe(
         success => {
 
-          this.successMessage = success;
 
           this.cookieService.delete('token');
           this.cookieService.delete('role');
           this.cookieService.delete('id');
 
-          this.cookieService.set('token', success.complete['token']);
-          this.cookieService.set('id', success.complete['id']);
-          this.cookieService.set('role', success.complete['role']);
+          this.cookieService.set('token', success['token']);
+          this.cookieService.set('id', success['id']);
+          this.cookieService.set('role', success['role']);
 
           this.authService.checkIsSuperAdmin();
           this.authService.checkIsMahapolaAdmin();
@@ -73,7 +72,7 @@ export class VerifyComponent implements OnInit {
           this.ngPrograssBar.done();
         },
         error => {
-
+          alert(error.error.fail);
           this.errorMessage = error.error.fail;
           this.ngPrograssBar.done();
         }

@@ -236,16 +236,29 @@ class UserController extends Controller{
      */
     public function show($id)
     {
-        $user = User::leftJoin('faculties', 
-            function($join_faculty){
-                 $join_faculty -> on('users.faculty_id', '=', 'faculties.id');
-            }
-        )->select('first_name', 'last_name','student_no', 'email', 'entrance_year' ,'faculties.faculty_name', 'profile_summary')
-        ->where('users.id', $id)
-        ->get();
+        try{
+            $user = User::leftJoin('faculties', 
+                function($join_faculty){
+                    $join_faculty -> on('users.faculty_id', '=', 'faculties.id');
+                }
+            )->leftJoin('images', 
+                function( $join_images) {
+                    $join_images -> on ('users.id', '=', 'images.user_id') ;
+                }
+            )->select('first_name', 'last_name','student_no', 'email', 'entrance_year' ,'faculties.faculty_name', 'profile_summary', 'saved_path')
+            ->where('users.id', $id)
+            ->get();
 
+            
+                $complete = $user[0];
+            
+            return response()->json($complete, 200);
 
-        return response()->json($user);
+        }catch(QueryException $e){
+            $errorCode = $e->errorInfo[1];
+            return response()->json($errorCode, 400);
+        }
+
     }
 
     /**

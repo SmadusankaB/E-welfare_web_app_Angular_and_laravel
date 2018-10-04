@@ -78,8 +78,8 @@ class PassportController extends Controller
 
 			// return, return array with id, role_type and token
 			
-			return $complete;
-			return response()->json(['complete' => $complete], 200);
+			// return $complete;
+			return response()->json( $complete, 200);
 		
 
 			//return response()->json($complete);
@@ -111,7 +111,7 @@ class PassportController extends Controller
 		
 		//Validate inputs
 		if($validator->fails()){
-			return response()->json([$validator->errors()], 200);
+			return response()->json($validator->errors(), 400);
 		}
 
 		//get request details
@@ -124,7 +124,7 @@ class PassportController extends Controller
 		$user = User::create($input);
 	
 		// assign id of newly created user into rturn array
-		$success['id'] = $user->id;
+		$complete['id'] = $user->id;
 
 		//Create random strings for email
 		$user['code'] =  str_random(4);
@@ -139,10 +139,10 @@ class PassportController extends Controller
 		});
 
 		// assign success message into return array.
-		$success['message'] = 'Activation code sent. Check your email';
+		$complete['message'] = 'Activation code sent. Check your email';
 
 		// return response with, user id and message.
-		return response()->json(['complete'=> $success], 200);
+		return response()->json($complete, 200);
 	}
 
 
@@ -170,7 +170,7 @@ class PassportController extends Controller
 
 				// if account status already equal to one
 				if($user->is_activated == 1){
-					// return message
+					// return messa
 					return response()->json(['error'=> 'You already activated. Please login.'], 400);
 				}else{// if user account is not activated yet
 
@@ -181,16 +181,16 @@ class PassportController extends Controller
 					 if(count($role)>0){
 						
 						// assign role into return array
-		    			$success['role'] = $role[0]->name; //Assign role name to response array
+		    			$complete['role'] = $role[0]->name; //Assign role name to response array
 		    	    }else{
 
 						// if the current user doesn't have a role, then assign default user type call 
 						// ROLE_GENERAL
-		    	    	$success['role'] = 'ROLE_GENERAL';
+		    	    	$complete['role'] = 'ROLE_GENERAL';
 		    	    }
 					
 					// assign current user id into return array
-					$success['id'] = $user['id'];
+					$complete['id'] = $user['id'];
 
 					// activate user by updating value of is_activated  into 1
 					$user->update(['is_activated'=>1]);
@@ -199,10 +199,10 @@ class PassportController extends Controller
 					DB::table('users_activation')->where('code', $code)->delete();
 
 					//create and assign a token into return array
-					$success['token'] = $user->createToken('oauth')->accessToken;
+					$complete['token'] = $user->createToken('oauth')->accessToken;
 					
 					// return response with id, role, token
-					return response()->json(['complete'=> $success], 200);
+					return response()->json( $complete, 200);
 				}
 			}else{
 

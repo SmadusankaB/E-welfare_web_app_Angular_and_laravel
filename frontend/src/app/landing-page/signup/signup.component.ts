@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
   passwordErrorMeg = 'Please Enter Password with 8 Characers';
   rePasswordErrorMeg: 'Please Re-enter Password';
 
-  successMessage: any;
+
   errorMessage: string[] = [];
 
    constructor(
@@ -63,27 +63,34 @@ export class SignupComponent implements OnInit {
         this.signUpService.signUp(this.signUpForm.value)
         .subscribe(
           success => {
-            this.successMessage = success;
 
+            console.log(success);
             this.cookieService.delete('id');
-            this.cookieService.set('id', this.successMessage.complete.id);
+            this.cookieService.set('id', success.id);
 
             this.router.navigate(['/verify']);
             this.ngProgressBar.done();
           },
           error => {
-            if (error.error.fail['student_no']) {
-              this.errorMessage.push(error.error.fail['student_no'][0]);
+            console.log(error);
+            if (error.error['student_no']) {
+              // this.errorMessage.push(error.error['student_no'][0]);
+              alert(error.error['student_no'][0]);
             }
-            if (error.error.fail['password']) {
-              this.errorMessage.push(error.error.fail['password'][0]);
+            if (error.error['password']) {
+              // this.errorMessage.push(error.error['password'][0]);
+              alert(error.error['password'][0]);
             }
-            if (error.error.fail['confirm_password']) {
-              this.errorMessage.push(error.error.fail['confirm_password'][0]);
+            if (error.error['confirm_password']) {
+              // this.errorMessage.push(error.error['confirm_password'][0]);
+              alert(error.error['confirm_password'][0]);
             }
-            if (error.error.fail['email']) {
-              this.errorMessage.push(error.error.fail['email'][0]);
+            if (error.error['email']) {
+              // this.errorMessage.push(error.error['email'][0]);
+              alert(error.error['email'][0]);
             }
+
+
 
             this.ngProgressBar.done();
           });

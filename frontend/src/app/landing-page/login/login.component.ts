@@ -70,9 +70,9 @@ export class LoginComponent implements OnInit {
           this.cookieService.delete('role');
           this.cookieService.delete('id');
 
-          this.cookieService.set('token', success.complete['token']);
-          this.cookieService.set('id', success.complete['id']);
-          this.cookieService.set('role', success.complete['role']);
+          this.cookieService.set('token', success['token']);
+          this.cookieService.set('id', success['id']);
+          this.cookieService.set('role', success['role']);
 
           this.authService.checkIsSuperAdmin();
           this.authService.checkIsMahapolaAdmin();
@@ -87,11 +87,12 @@ export class LoginComponent implements OnInit {
           this.loaderService.hideLoader();
 
           this.backendErrorMsg = error.error.fail;
-          this.alertService.create(
-            2000,
-            'danger',
-            'Error',
-            this.backendErrorMsg);
+          // this.alertService.create(
+          //   2000,
+          //   'danger',
+          //   'Error',
+          //   this.backendErrorMsg);
+          alert(error.error.fail);
         });
 
       }

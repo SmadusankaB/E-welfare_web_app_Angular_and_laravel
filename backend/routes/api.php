@@ -29,9 +29,6 @@ Route::post('activateaccount', 'AuthenticationControllers\PassportController@req
 //testing purpose
 Route::get('test', 'UserController\User\UserController@test');
 
-//testing purpose
-Route::get('fuck', 'UserController\User\UserController@test');
-
 // get common post according to page scrolling
 Route::get('commonposts', 'PostControllers\CommonPostController@getPosts');
 
@@ -102,6 +99,7 @@ Route::group(['middleware'=>['auth:api', 'is_activated:1']], function(){
 	});
 
 	//User controller
+	// show(id) method is called by both web application and mobile application
 	Route::resource(
 		//index 	- 
 		//create    -

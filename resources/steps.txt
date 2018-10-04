@@ -16,8 +16,8 @@ after mgrating database
 	with id, 1 and 2.
 
 
-se/2013/005 - ADMIN
-se/2018/2100 - USER
+se/2013/005 , 12345678- ADMIN
+se/2013/2000, 12345678 - USER 
 
 Installments - search options default
 	entrance year- current year
@@ -49,7 +49,5 @@ Also, if admin ckeck applyagainstatus on bursary request view form, delete old r
 about the bursary submission from bursryapps table and update applyagainstatus on user table to one
 
 	
-3 month- 16000
-indi - 20000 
-15000, 7500
-october - 07
+Todo
+01. changed response to object from arry in user/{id}, show(id) in UserController

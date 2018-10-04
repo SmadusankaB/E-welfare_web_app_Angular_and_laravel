@@ -9,31 +9,31 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable()
 export class VerifyService {
 
-	apiRoot: string;
-	apiId: string;
+  apiRoot: string;
+  apiId: string;
 
   constructor(
-  	private httpClient: HttpClient,
-  	private globalDataService: GlobaldataService,
-  	private cookieService: CookieService
-  	) { 
+    private httpClient: HttpClient,
+    private globalDataService: GlobaldataService,
+    private cookieService: CookieService
+  ) {
 
-  	this.apiRoot = this.globalDataService.shareObj['apiRoot'];
+    this.apiRoot = this.globalDataService.shareObj['apiRoot'];
   }
 
-  doVerify(formData: any):Observable<any> {
-  	
-  	this.apiId = this.cookieService.get('id');
-    
-  	let url = `${this.apiRoot}/api/verify/${this.apiId}`;
-  	return this.httpClient.post(
-  		url,
-  		formData
-  		).catch(this.errorHandler);
+  doVerify(formData: any): Observable<any> {
+
+    this.apiId = this.cookieService.get('id');
+
+    let url = `${this.apiRoot}/api/verify/${this.apiId}`;
+    return this.httpClient.post(
+      url,
+      formData
+    ).catch(this.errorHandler);
   }
 
-  private errorHandler(error:  HttpErrorResponse){
-  	return Observable.throw(error);
+  private errorHandler(error: HttpErrorResponse) {
+    return Observable.throw(error);
   }
 
 }
