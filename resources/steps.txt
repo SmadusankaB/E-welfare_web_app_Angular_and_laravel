@@ -15,6 +15,8 @@ after mgrating database
 10. add 'Account activation request' and 'Bursary scholarship request' as notification type
 	with id, 1 and 2.
 
+11. When register user  images, admin should give student no as user name and email as password because
+	couldn't fild any method to convert bcrypt password.
 
 se/2013/005 , 12345678- ADMIN
 se/2013/2000, 12345678 - USER 
@@ -49,5 +51,4 @@ Also, if admin ckeck applyagainstatus on bursary request view form, delete old r
 about the bursary submission from bursryapps table and update applyagainstatus on user table to one
 
 	
-Todo
-01. changed response to object from arry in user/{id}, show(id) in UserController
+

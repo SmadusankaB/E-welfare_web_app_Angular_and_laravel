@@ -428,5 +428,39 @@ class UserController extends Controller{
         return $datetime;
 
     }
+     
+    
+    /**
+     * Admin login for register the user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function loginAdmin(Request $request){
+
        
+		$validator = Validator::make($request->all(),[
+			'student_no'=> 'required',
+			'email' => 'required'
+		]);
+
+		
+		//Validate inputs
+		if($validator->fails()){
+			return response()->json($validator->errors(), 400);
+        }else {
+
+            $student_no = User::select('student_no')
+            ->where('email', $request->email)->get();
+
+            if ($student_no[0]->student_no == $request->student_no) {
+                return response()->json(true, 200);
+            }else {
+                return response()->json(false, 400);
+            }
+            
+        }
+    }
+
+
 }

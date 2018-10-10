@@ -151,6 +151,8 @@ Route::group(['middleware'=>['auth:api', 'is_activated:1']], function(){
 	// get installments details for current period
 	Route::post('periodscurrent', 'InstallmentControllers\InstallmentController@getDataofCurrentInstallment');
 
+	// admin login for register student images
+	Route::post('adminlogin', 'UserController\User\UserController@loginAdmin');
 
 	// bursary app  controller
 	// functionas in this controller will be called by mobile application by user
