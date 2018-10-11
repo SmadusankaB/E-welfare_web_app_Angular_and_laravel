@@ -31,12 +31,14 @@ export class GeneralauserComponent implements OnInit {
   getUserDashboardData() {
     const result = this.route.snapshot.data['userDashboardResolver'];
 
-    this.period = result.complete['period'];
-    this.scholarship = result.complete['scholership_name'];
-    this.installment = result.complete['n_of_installments'];
-    this.signatureStatus = result.complete['signature_status'];
-    this.tableData = result.installemtns;
-    // console.log(result.installemtns);
+    // console.log(result[0]['period']);
+
+    this.period = result[0]['period'];
+    this.scholarship = result[0]['scholership_name'];
+    this.installment = result[0]['n_of_installments'];
+    this.signatureStatus = result[0]['signature_status'];
+    this.tableData = result[1];
+    console.log(result[1]);
   }
 
   // setup data table and this called by getRoles method after getting roles

@@ -266,7 +266,7 @@ class DashboardController extends Controller
             // cif user doesn't have a scholarship
             if ($user[0]->scholership_name == null) {
 
-                $data['scholership_name'] = "You don't have any sholarship";
+                $data['scholership_name'] = "No data";
                 $data['signature_status'] = "No data";
                 $data['n_of_installments'] ="No data";
                 $data['period'] = "No data";
@@ -297,12 +297,14 @@ class DashboardController extends Controller
                
             }
 
+            // get add installmets
             $installments = Installment::leftJoin('periods', function($join_period){
                 $join_period -> on ('periods.id', '=', 'installments.period_id');
             })->where('installments.user_id', $user_id)->get();
            
             //return $installments;
-            return response()->json(['complete' => $data, 'installemtns'=>$installments ], 200);
+            // return response()->json($data , 200);
+            return response()->json([$data, $installments ], 200);
 
         }catch(QueryException $e){
 

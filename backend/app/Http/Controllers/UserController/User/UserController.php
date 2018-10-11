@@ -453,12 +453,15 @@ class UserController extends Controller{
             $student_no = User::select('student_no')
             ->where('email', $request->email)->get();
 
-            if ($student_no[0]->student_no == $request->student_no) {
-                return response()->json(true, 200);
+            if ($student_no[0] == null){
+                return response()->json(['fail' => 'Enter valid email'], 400);
             }else {
-                return response()->json(false, 400);
-            }
-            
+                if ($student_no[0]->student_no == $request->student_no) {
+                    return response()->json(['complete' => true], 200);
+                }else {
+                    return response()->json(['fail' => 'Password did not match'], 400);
+                }
+            }           
         }
     }
 
