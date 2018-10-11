@@ -92,7 +92,7 @@ class InstallmentController extends Controller
                         
                         // save in the database
                         $result = $installment->save();
-                        return response()->json(['complete' => $result], 200);
+                        return response()->json($result, 200);
                     }
                 
                 }
