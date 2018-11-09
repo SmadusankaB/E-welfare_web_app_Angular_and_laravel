@@ -34,6 +34,7 @@ export class PeriodComponent implements OnInit {
     // data pass from modal
     const dialogRef = this.dialog.open( AddComponent, {
         width: '65%',
+        height: '60%'
       //  data: {name:  'animal: this.animal'}
     });
 

@@ -3,7 +3,7 @@
 <mat-dialog-content>
 <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="addPeriodForm" role="form">
   <div class="form-content">
-    <div class="field-container">       
+    <div class="field-container">
         <mat-form-field class="form-fields">
             <input matInput [matDatepicker]="picker" formControlName="start_date" placeholder="Choose start date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -12,11 +12,11 @@
       <mat-form-field class="form-fields">
           <input matInput [matDatepicker]="picker2" formControlName="end_date" placeholder="Choose end date">
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>   
-      </mat-form-field> 
-      <mat-checkbox  formControlName="status" [(ngModel)]="checked">Checked</mat-checkbox>    
+          <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-checkbox  formControlName="status" [(ngModel)]="checked">Checked</mat-checkbox>
         <div class="button-row">
-            <button mat-button type="button" (click)="cancel()">Status</button>
+            <button mat-button type="button" (click)="cancel()">Cancel</button>
             <button mat-raised-button type="submit"  [disabled]="addPeriodForm.invalid">Save</button>
         </div>
     </div>

@@ -155,7 +155,6 @@ class InstallmentController extends Controller
     // get installment details for current month
     public function getDataofCurrentInstallment(Request $request){
 
-        
         //return $request;
         //search accrdong to entrace year
         $period_start_date = $request->period_start_date; 
@@ -179,7 +178,7 @@ class InstallmentController extends Controller
             $entrance_year = Carbon::now('Asia/Colombo')->format('Y');
         }
         
-         //if user select none, set entrance_year to current year
+         //if user select none, set period_start date of the last period
         if($period_start_date == ""){
             $x = Period::select('start_date')->orderBy('id', 'desc')->first();
 
@@ -187,7 +186,7 @@ class InstallmentController extends Controller
             // return $period_start_date;
         }
 
-        //if faculty id does not have a value, set null
+        //if faculty id does not have a value, set commerce facult as default parameter
         if($faculty_id_obj->isEmpty()){
             $commerce = "commerce";
             $commerce_id = Faculty::where('faculty_name', 'like', '%' .$commerce.  '%')->pluck('id');
@@ -199,7 +198,7 @@ class InstallmentController extends Controller
            
         }
 
-        //if faculty id does not have a value, set null
+        //if faculty id does not have a value, set mahapola as default paramenter
         if($scholership_id_obj->isEmpty()){
             $mahapola = "Mahapola";
             $mahapola_id = Scholership::where('scholership_name', 'like', '%' .$mahapola.  '%')->pluck('id');
@@ -211,13 +210,12 @@ class InstallmentController extends Controller
         }
 
        ///return $scholersip_id;  
-
+       
 
         //return $request->entrance_year;
         $result  = Installment::leftJoin('users', 
             function($join_installments)
             {
-              
                 $join_installments -> on('users.id', '=', 'installments.user_id');
             }
         )->leftJoin('periods', 

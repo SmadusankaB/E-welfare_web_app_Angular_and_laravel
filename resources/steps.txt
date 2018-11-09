@@ -1,8 +1,11 @@
 after mgrating database
 01. Run "php artisan config:cache"
-02. Run "php artisan passport:install"
+    Restart serves
+    Run "php artisan migrate"
+02. Run "php artisan passport:install --force"
 03. fill faculties, scholarships, roles(ROLE_SUPERADMIN), role_user  with at leaset one value
 03. Mail working only for edurom
+    Register admin
 04. When keep relationships between tables using forign key, consider type and date in the migration name
 	also, nullable, onDelete('cascade') should concern
 05. datatype of each id is unsigned
@@ -10,7 +13,7 @@ after mgrating database
 06. add all facultis one by one
 06. add only ROLE_SUPERADMIN to role table 
 07. set admin id and role in user_role table
-08. add 'Move from Bursary to Mahapola' and 'Move from Mahapola to Bursary' to options table
+// 08. add 'Move from Bursary to Mahapola' and 'Move from Mahapola to Bursary' to options table
 09. add 'Mahapola', id =1 and 'Bursary', id=2 in to sholarships table
 10. add 'Account activation request' and 'Bursary scholarship request' as notification type
 	with id, 1 and 2.
@@ -18,21 +21,37 @@ after mgrating database
 11. When register user  images, admin should give student no as user name and email as password because
 	couldn't fild any method to convert bcrypt password.
 
-se/2013/005 , 12345678- ADMIN
-se/2013/2000, 12345678 - USER 
 
-Installments - search options default
+
+12.Installments - search options default
 	entrance year- current year
 	period start date - start date of last period
 	faculty id  - of commerce faclty using like
 	scholarship id - mahapola using like
 
 
+13. When add users using csv file
+	It set default values to Scholarship- Mahapola, Faculty - Faculty of science
+	If you want to add faculty name too, put faculty column as in the database
+	If you want to add scholarship too, put scholarship column as in the database
+	password of each user is student number	
+
+14. current database created as
+	50 from each faculty for a scholarship and for a year
+
+15. When drop to remort serve, delete image foles nad csv files
+	
+
+2014 - Faculty of Science - mhapola, bursary - ok
+2014 - Faculty of Medical - mhapola, Bursary- 
+2014 - Faculty of Humanities - mhapola, Bursary- 
+2014 - Faculty of Commerce- mhapola, Bursary- 
+2014 - Faculty of Computing and Technology- mhapola, Bursary- 
+2014 - Faculty of Social Science- mhapola, Bursary- 
 
 admin
 	request
 		bursary - table show user who has only scholarship_status in users tble is 0
-
 
 
 user
@@ -41,14 +60,23 @@ user
 				    if showImageUpload is equal to 1 show image upload part and hide application
 		
 
+university_database_2
+se/2013/005 , 12345678- ADMIN
+se/2013/2000, 12345678 - USER 
 
-todo- 
-move applyagainstatus into users tabel form ursaryapps table
-so, search every place of applyagainstatus  and configure it
-this controll is called by user bursary form edit, submission(update), admin approval 
-on bursary requests.
-Also, if admin ckeck applyagainstatus on bursary request view form, delete old recod 
-about the bursary submission from bursryapps table and update applyagainstatus on user table to one
+university_database_3
+admin
+	username (student_no) admin
+	password, 12345678
+	email, setechuok@gmail.com
+
+student
+	user name : se/2010/3
+	password: se/2010/3
+
+
+
+
 
 	
 

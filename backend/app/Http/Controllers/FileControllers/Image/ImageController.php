@@ -68,9 +68,6 @@ class ImageController extends Controller
             
             ])->validate();
 
-
-            
-
         if(empty($validation)){           
             $image = $request -> file('image');
 

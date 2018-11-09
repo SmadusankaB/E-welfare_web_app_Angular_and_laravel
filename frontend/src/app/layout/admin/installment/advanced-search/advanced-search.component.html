@@ -11,19 +11,19 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="form-fields">
-                <mat-select placeholder="Select period" formControlName="period_start_date" >
-                  <mat-option *ngFor="let period of periods" [value]="period.start_date">
-                    {{period.start_date}}
-                  </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="form-fields">
               <mat-select placeholder="Select entrance Year" formControlName="entrance_year" >
                 <mat-option *ngFor="let year of years" [value]="year">
                   {{year}}
                 </mat-option>
               </mat-select>
           </mat-form-field>
+            <mat-form-field class="form-fields">
+                <mat-select placeholder="Select period within the entrace year" formControlName="period_start_date" >
+                  <mat-option *ngFor="let period of periods" [value]="period.start_date">
+                    {{period.start_date}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
             <mat-form-field class="form-fields">
                 <mat-select placeholder="Scholarship" formControlName="scholership_name" >
                   <mat-option *ngFor="let scholarship of scholarships" [value]="scholarship.scholership_name">

@@ -192,7 +192,7 @@ class UserController extends Controller{
             
         
             $inserted_data = array('student_no'=>$value[1],
-                                   'fist_name' => $value[2],
+                                   'first_name' => $value[2],
                                    'last_name' => $value[3],
                                    'email'=>$value[4],
                                    'password' => bcrypt($value[1]),

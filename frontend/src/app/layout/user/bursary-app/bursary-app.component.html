@@ -1,5 +1,5 @@
 <div class="barapp-container">
-  <div class="application-only" *ngIf="applyAgainStatus && scholarshipStatus">
+  <div class="application-only" *ngIf="applyAgainStatus && !scholarshipStatus">
       <div class="application-form"  *ngIf="!showImageUpload">
           <mat-card>
             <div class="content">
@@ -72,7 +72,7 @@
             </mat-card>
         </div>
   </div>
-    <div class="message-area" *ngIf="!applyAgainStatus || !scholarshipStatus">
+    <div class="message-area" *ngIf="!applyAgainStatus || scholarshipStatus">
       <mat-card>
         <div class="content">
           <div class="header">
