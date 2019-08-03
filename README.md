@@ -41,10 +41,12 @@ Further help
 To get more help on the Angular CLI use ng help or go check out the Angular CLI README.
 
 Run Laravel app (Backend) - steps, 
-1. Navigate to backend folder and run "composer update".
-2. Run apache server and MySQL server. (It can be done by tools like XAMPP, WAMP, MAMP etc).
-3. Run, "php artisan config:cache".
-4. Run "php artisan migrate".
-5. Run "php artisan serve".
+1. Navigate to backend folder and run "composer update" - It will download all the dependancies for you.
+2. Run apache server and MySQL server (It can be done by tools like XAMPP, WAMP, MAMP etc).
+3. Create a database.
+4. Update values in .env file.
+5. Run, "php artisan config:cache" - It will configure the application chache memory according to your file system.
+6. Run "php artisan migrate" - It will create all the table for you.
+7. Run "php artisan serve" - for a dev server.
 
 
