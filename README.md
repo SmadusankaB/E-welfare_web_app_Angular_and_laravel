@@ -1,4 +1,4 @@
-# welfare_web_app
+# E-welfare web app
 “E-Welfare Web app” is a student and information management system . 
 Features are 
 1.Real time admin dashboard
